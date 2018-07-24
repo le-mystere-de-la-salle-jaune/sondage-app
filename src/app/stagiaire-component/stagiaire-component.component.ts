@@ -1,5 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Stagiaire } from '../domains';
+import {HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stagiaire-component',
@@ -11,15 +13,16 @@ export class StagiaireComponentComponent implements OnInit {
   @Input() stagiaire:Stagiaire
   
 
-  constructor() { 
+  constructor(private router: Router) { 
   }
 
   quandOnClique()
   {
-    console.log(this.stagiaire.Nom + " " + this.stagiaire.Prenom)
+    this.router.navigate([`/${this.stagiaire.Id}/sondages`])
   }
 
   ngOnInit() {
   }
+  
 
 }

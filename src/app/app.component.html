@@ -12,8 +12,30 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"><img alt="Logo" src=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>  
+  <div class="collapse navbar-collapse" id="navbarsExample03">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+            </li>
+        </ul>
+    </div>
+  </nav>
+
+<div id="content">
+        <!-- le composant défini dans la route courante va être inséré à cet endroit -->
+    
+        <!-- au regard de la configuration précédente, 
+            /page1 va insérer le composant AComponent à cet emplacement
+            /page2 a insérer le composant BComponent à cet emplacement
+        -->
     <app-bandeau-component></app-bandeau-component>
-    <app-choix-stagiaire></app-choix-stagiaire>
+    <router-outlet></router-outlet>
+</div>
+    
 </body>
 
 </html>

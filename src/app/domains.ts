@@ -1,6 +1,6 @@
 export class Stagiaire
 {
-    constructor(private _nom:string, private _prenom:string,private _urlPhoto:string)
+    constructor(private _id:number,private _nom:string, private _prenom:string,private _email:string, private _urlPhoto:string)
     {
    
     }
@@ -34,4 +34,46 @@ export class Stagiaire
     {
         this._urlPhoto=urlPhoto
     }
+
+    get Id():number
+    {
+        return this._id
+    }
+
+    set Id(id:number)
+    {
+        this._id=id
+    }
+
+    get Email():string
+    {
+        return this._email
+    }
+
+    set Email(email:string)
+    {
+        this._email=email
+    }
 }
+
+
+export class Sondage
+{
+    constructor(private _titre:string)
+    {
+
+    }
+
+    get Titre():string
+    {
+        return this._titre
+    }
+
+    set Titre(titre:string)
+    {
+        this._titre=titre
+    }
+}
+
+
+

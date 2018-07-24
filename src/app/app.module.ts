@@ -7,6 +7,14 @@ import { BandeauComponentComponent } from './bandeau-component/bandeau-component
 import { StagiaireComponentComponent } from './stagiaire-component/stagiaire-component.component';
 import { ListeStagiairesComponentComponent } from './liste-stagiaires-component/liste-stagiaires-component.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { ListeSondagesComponent } from './liste-sondages/liste-sondages.component';
+
+const appRoutes: Routes = [
+  { path: 'choix-stagiaire', component: ChoixStagiaireComponent },
+  { path: ':id/sondages', component: ListeSondagesComponent },
+  { path: '',   redirectTo: '/choix-stagiaire', pathMatch: 'full' }
+];
 
 @NgModule({
   declarations: [
@@ -14,12 +22,14 @@ import { HttpClientModule } from '@angular/common/http';
     ChoixStagiaireComponent,
     BandeauComponentComponent,
     StagiaireComponentComponent,
-    ListeStagiairesComponentComponent
+    ListeStagiairesComponentComponent,
+    ListeSondagesComponent
   ],
   imports: [
     BrowserModule,
     MDBBootstrapModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

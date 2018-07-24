@@ -20,6 +20,6 @@ export class StagiaireService
   {
     return this._http.get(`${URL_BACKEND}/api/stagiaires`)
     .toPromise()
-    .then((data: any) => data.map(el => new Stagiaire(el.nom, el.prenom, el.photo_url)));
+    .then((data: any) => data.map(el => new Stagiaire(el.id,el.nom, el.prenom,el.email, el.photo_url)));
   }
 }
