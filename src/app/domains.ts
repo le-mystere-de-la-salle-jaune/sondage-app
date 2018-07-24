@@ -5,32 +5,32 @@ export class Stagiaire
    
     }
 
-    getNom():string
+    get Nom():string
     {
         return this._nom
     }
 
-    setNom(nom:string)
+    set Nom(nom:string)
     {
         this._nom=nom
     }
 
-    getPrenom():string
+    get Prenom():string
     {
         return this._prenom
     }
 
-    setPrenom(prenom:string)
+    set Prenom(prenom:string)
     {
         this._prenom=prenom
     }
 
-    getUrlPhoto():string
+    get UrlPhoto():string
     {
         return this._urlPhoto
     }
 
-    setUrlPhoto(urlPhoto:string)
+    set UrlPhoto(urlPhoto:string)
     {
         this._urlPhoto=urlPhoto
     }

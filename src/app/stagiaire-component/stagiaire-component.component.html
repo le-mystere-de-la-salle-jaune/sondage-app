@@ -1,14 +1,21 @@
-<div class="card mb-3 box-shadow">
-  <div class="card-header">
-    <h4 class="my-0 font-weight-normal">{{stagiaire.getNom()}} {{stagiaire.getPrenom()}}</h4>
-  </div>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-12 col-sm-4">
-        <img src="" alt="{{urlPhoto}}">
+<div class="row">
+  <div class = "col-12 col-sm-3 offset-1">
+    <div class="card mb-3 box-shadow">
+      <div class="card-header" style="text-align:center">
+        <h4 class="my-0 font-weight-normal">{{stagiaire.Nom}} {{stagiaire.Prenom}}</h4>
       </div>
-      <div class="col-2 offset-4 col-sm-4 offset-sm-8">
-        <button type="button" class="btn btn-outline-secondary" onclick="">Choisir</button>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-sm-10 offset-sm-1">
+            <img src="{{stagiaire.UrlPhoto}}" alt="{{stagiaire.Nom}} {{stagiaire.Prenom}}" style="max-width:100%">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-12 col-sm-4 offset-sm-4">
+            <button type="button" class="btn btn-outline-secondary" onclick="">Choisir</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

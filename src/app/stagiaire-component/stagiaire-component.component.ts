@@ -12,7 +12,7 @@ export class StagiaireComponentComponent implements OnInit {
   
 
   constructor() { 
-    this.stagiaire = new Stagiaire('Jean','Dujardin','test.png') 
+    this.stagiaire = new Stagiaire('Jean','Dujardin','https://img2.closermag.fr/var/closermag/storage/images/bio-people/biographie-jean-dujardin-112277/815517-1-fre-FR/Jean-Dujardin_square500x500.jpg') 
   }
 
   ngOnInit() {
