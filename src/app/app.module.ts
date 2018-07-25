@@ -9,8 +9,11 @@ import { ListeStagiairesComponentComponent } from './liste-stagiaires-component/
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ListeSondagesComponent } from './liste-sondages/liste-sondages.component';
+
 import { SondageComponentComponent } from './sondage-component/sondage-component.component';
 import { ListeResultatsComponent } from './liste-resultats/liste-resultats.component';
+import { ResultatsComponent } from './resultats/resultats.component';
+
 
 const appRoutes: Routes = [
   { path: 'choix-stagiaire', component: ChoixStagiaireComponent },
@@ -27,8 +30,10 @@ const appRoutes: Routes = [
     StagiaireComponentComponent,
     ListeStagiairesComponentComponent,
     ListeSondagesComponent,
+
     SondageComponentComponent,
-    ListeResultatsComponent
+    ListeResultatsComponent,
+    ResultatsComponent
   ],
   imports: [
     BrowserModule,

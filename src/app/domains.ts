@@ -59,19 +59,9 @@ export class Stagiaire
 
 export class Sondage
 {
-    constructor( private _id:number,private _titre:string)
+    constructor(private _id:number,private _titre:string)
     {
 
-    }
-
-    get Titre():string
-    {
-        return this._titre
-    }
-
-    set Titre(titre:string)
-    {
-        this._titre=titre
     }
 
     get Id():number
@@ -85,6 +75,15 @@ export class Sondage
     }
 
 
+    get Titre():string
+    {
+        return this._titre
+    }
+
+    set Titre(titre:string)
+    {
+        this._titre=titre
+    }
 }
 
 

@@ -11,6 +11,7 @@ const URL_BACKEND = environment.backendUrl;
 })
 export class SondageService {
 
+
   constructor(private _http:HttpClient) {
   
   }
@@ -29,4 +30,5 @@ export class SondageService {
     .toPromise()
     .then((el: any) => new Stagiaire(el.id,el.nom, el.prenom,el.email, el.photo_url));
   }
+
 }

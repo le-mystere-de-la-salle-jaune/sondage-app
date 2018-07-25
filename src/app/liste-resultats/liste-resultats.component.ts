@@ -30,5 +30,4 @@ export class ListeResultatsComponent implements OnInit {
     let idNumeriser = Number.parseInt(id)
     this.router.navigate([`/${this.idStagiaire}/resultats/${idNumeriser}`])
   }
-
 }
