@@ -1,0 +1,16 @@
+<h3>Mes Resultats</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col" style="width:90%">Libellé</th>
+      <th scope="col" >Action</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let Resultat of listeSondages">
+    <tr>
+      <td>{{Resultat.Titre}}</td>
+      <td><button type="button" class="btn btn-outline-secondary" (click)="afiichageResultatSondage(Resultat.Id)">Visualiser</button></td>
+    </tr>
+  </tbody>
+</table>
