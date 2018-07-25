@@ -21,14 +21,5 @@ export class SondageService {
     return this._http.get(`${URL_BACKEND}/api/sondages?idStagiaire=${id}`)
     .toPromise()
     .then((data: any) => data.map(el => new Sondage(el.id,el.titre)));
-    
   }
-
-  trouverStagiaireParId(id:number)
-  {
-    return this._http.get(`${URL_BACKEND}/api/stagiaires/${id}`)
-    .toPromise()
-    .then((el: any) => new Stagiaire(el.id,el.nom, el.prenom,el.email, el.photo_url));
-  }
-
 }

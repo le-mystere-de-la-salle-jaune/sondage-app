@@ -17,8 +17,10 @@ import { ResultatsComponent } from './resultats/resultats.component';
 
 const appRoutes: Routes = [
   { path: 'choix-stagiaire', component: ChoixStagiaireComponent },
-  { path: ':id/sondages', component: ListeSondagesComponent },
-  { path: ':id/Resultats', component: ListeResultatsComponent },
+  { path: ':id_St/sondages', component: ListeSondagesComponent },
+  { path: ':id_St/sondages/:id_Sd', component: SondageComponentComponent },
+  { path: ':id_St/resultats', component: ListeResultatsComponent },
+  { path: ':id_St/resultats/:id_Sd', component: ResultatsComponent },
   { path: '',   redirectTo: '/choix-stagiaire', pathMatch: 'full' }
 ];
 
