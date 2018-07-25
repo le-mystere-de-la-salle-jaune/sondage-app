@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import { Sondage } from '../domains';
+import { Sondage, Stagiaire } from '../domains';
+import { ActivatedRoute } from '@angular/router';
 
 const URL_BACKEND = environment.backendUrl;
 
@@ -10,19 +11,22 @@ const URL_BACKEND = environment.backendUrl;
 })
 export class SondageService {
 
-  private _idStagiaire:number
-
-  constructor(private _http:HttpClient) { }
-
-  listerSondages():Promise<Sondage[]>  
-  {
-    return this._http.get(`${URL_BACKEND}/api/sondages?idStagiaire=${this._idStagiaire}`)
-    .toPromise()
-    .then((data: any) => data.map(el => new Sondage(el.titre)));
+  constructor(private _http:HttpClient) {
+  
   }
 
-  set IdStagiaire(id:number)
+  listerSondages(id:number):Promise<Sondage[]>  
   {
-    this._idStagiaire=id
+    return this._http.get(`${URL_BACKEND}/api/sondages?idStagiaire=${id}`)
+    .toPromise()
+    .then((data: any) => data.map(el => new Sondage(el.id,el.titre)));
+    
+  }
+
+  trouverStagiaireParId(id:number)
+  {
+    return this._http.get(`${URL_BACKEND}/api/stagiaires/${id}`)
+    .toPromise()
+    .then((el: any) => new Stagiaire(el.id,el.nom, el.prenom,el.email, el.photo_url));
   }
 }

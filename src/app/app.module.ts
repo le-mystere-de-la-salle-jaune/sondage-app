@@ -9,10 +9,13 @@ import { ListeStagiairesComponentComponent } from './liste-stagiaires-component/
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ListeSondagesComponent } from './liste-sondages/liste-sondages.component';
+import { SondageComponentComponent } from './sondage-component/sondage-component.component';
+import { ListeResultatsComponent } from './liste-resultats/liste-resultats.component';
 
 const appRoutes: Routes = [
   { path: 'choix-stagiaire', component: ChoixStagiaireComponent },
   { path: ':id/sondages', component: ListeSondagesComponent },
+  { path: ':id/Resultats', component: ListeResultatsComponent },
   { path: '',   redirectTo: '/choix-stagiaire', pathMatch: 'full' }
 ];
 
@@ -23,7 +26,9 @@ const appRoutes: Routes = [
     BandeauComponentComponent,
     StagiaireComponentComponent,
     ListeStagiairesComponentComponent,
-    ListeSondagesComponent
+    ListeSondagesComponent,
+    SondageComponentComponent,
+    ListeResultatsComponent
   ],
   imports: [
     BrowserModule,
