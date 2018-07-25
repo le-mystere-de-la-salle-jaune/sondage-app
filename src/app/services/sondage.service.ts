@@ -10,19 +10,14 @@ const URL_BACKEND = environment.backendUrl;
 })
 export class SondageService {
 
-  private _idStagiaire:number
-
   constructor(private _http:HttpClient) { }
 
-  listerSondages():Promise<Sondage[]>  
+  listerSondages(id:number):Promise<Sondage[]>  
   {
-    return this._http.get(`${URL_BACKEND}/api/sondages?idStagiaire=${this._idStagiaire}`)
+    return this._http.get(`${URL_BACKEND}/api/sondages?idStagiaire=${id}`) 
     .toPromise()
-    .then((data: any) => data.map(el => new Sondage(el.titre)));
+    .then((data: any) => data.map(el => new Sondage(el.id,el.titre)));
   }
 
-  set IdStagiaire(id:number)
-  {
-    this._idStagiaire=id
-  }
+
 }
