@@ -19,16 +19,13 @@ export class ListeResultatsComponent implements OnInit {
   idStagiaire:number
 
   constructor(private resultatSondageService:ResultatSondageService,private _route: ActivatedRoute,private router: Router) {
-    this.idStagiaire = Number.parseInt(_route.snapshot.paramMap.get("id"))
-    resultatSondageService.listerResultatSondageStagiaire(this.idStagiaire).then((resultatSondage:any) => {
-      resultatSondage.forEach(resultatsondage => {
-        this.listeResultatSondage.push(resultatsondage);
-
-      });
-      _st.trouverStagiaireParId(id).then((st:Stagiaire)=> {
-        this.stagiaire=st;
-      })
-    }
+     this.idStagiaire = Number.parseInt(_route.snapshot.paramMap.get("id"))	     this.idStagiaire = Number.parseInt(_route.snapshot.paramMap.get("id"))
+-    sondageservice.listerSondages(this.idStagiaire).then((sondages:any) => {	+    resultatSondageService.listerResultatSondageStagiaire(this.idStagiaire).then((resultatSondage:any) => {
+-      sondages.forEach(sondage => {	+      resultatSondage.forEach(resultatsondage => {
+-        this.listeSondages.push(sondage);	+        this.listeResultatSondage.push(resultatsondage);
+       });	       });
+     });	     });
+    }	    }
 
   ngOnInit() {
   }
