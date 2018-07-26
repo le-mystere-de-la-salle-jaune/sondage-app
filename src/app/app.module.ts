@@ -17,13 +17,18 @@ import { EditerStagiaireComponent } from './editer-stagiaire/editer-stagiaire.co
 import { FormsEditerStComponent } from './forms-editer-st/forms-editer-st.component';
 
 
+
 const appRoutes: Routes = [
   { path: 'choix-stagiaire', component: ChoixStagiaireComponent },
+
+
+  { path: ':id/Resultats/:idR', component: ResultatsComponent },
   { path: ':id_St/editer', component: EditerStagiaireComponent },
   { path: ':id_St/sondages', component: ListeSondagesComponent },
   { path: ':id_St/sondages/:id_Sd', component: SondageComponentComponent },
   { path: ':id_St/resultats', component: ListeResultatsComponent },
-  { path: ':id_St/resultats/:id_Sd', component: ResultatsComponent },
+
+
   { path: '',   redirectTo: '/choix-stagiaire', pathMatch: 'full' }
 ];
 
@@ -39,8 +44,10 @@ const appRoutes: Routes = [
     SondageComponentComponent,
     ListeResultatsComponent,
     ResultatsComponent,
+
     EditerStagiaireComponent,
     FormsEditerStComponent
+
   ],
   imports: [
     BrowserModule,
