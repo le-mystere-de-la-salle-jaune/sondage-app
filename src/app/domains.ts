@@ -86,5 +86,9 @@ export class Sondage
     }
 }
 
+export class ResultatSondage{
+    constructor(public id:number,public stagiaire:number,public sondage:number,public optionSondage:number,public stagiaireClasse:number,public sondageName:string){
 
+    }
+}
 

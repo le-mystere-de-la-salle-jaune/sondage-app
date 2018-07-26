@@ -1,5 +1,21 @@
 <div class="container">
- <h2>{{Titre}}</h2> 
+    
+ <h2>Le Graphe</h2> 
+ <br/>
+ <br/>
  <br/>
  
+ <div style="display: block">
+        <canvas mdbChart
+            [chartType]="chartType"
+            [datasets]="chartDatasets"
+            [labels]="chartLabels"
+            [colors]="chartColors"
+            [options]="chartOptions"
+            [legend]="true"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
+        </canvas>
+    </div>
+
 </div>

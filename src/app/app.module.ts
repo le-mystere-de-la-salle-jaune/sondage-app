@@ -13,12 +13,14 @@ import { ListeSondagesComponent } from './liste-sondages/liste-sondages.componen
 import { SondageComponentComponent } from './sondage-component/sondage-component.component';
 import { ListeResultatsComponent } from './liste-resultats/liste-resultats.component';
 import { ResultatsComponent } from './resultats/resultats.component';
+import { EditStagiaireComponent } from './edit-stagiaire/edit-stagiaire.component';
 
 
 const appRoutes: Routes = [
   { path: 'choix-stagiaire', component: ChoixStagiaireComponent },
   { path: ':id/sondages', component: ListeSondagesComponent },
   { path: ':id/Resultats', component: ListeResultatsComponent },
+  { path: ':id/Resultats/:idR', component: ResultatsComponent },
   { path: '',   redirectTo: '/choix-stagiaire', pathMatch: 'full' }
 ];
 
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
 
     SondageComponentComponent,
     ListeResultatsComponent,
-    ResultatsComponent
+    ResultatsComponent,
+    EditStagiaireComponent
   ],
   imports: [
     BrowserModule,

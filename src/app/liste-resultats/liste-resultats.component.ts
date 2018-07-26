@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Sondage } from '../domains';
-import { SondageService } from '../services/sondage.service';
+import { ResultatSondage } from '../domains';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Route } from '@angular/router';
+import { ResultatSondageService } from '../services/resultat-sondage.service';
 
 
 @Component({
@@ -12,13 +12,14 @@ import { Route } from '@angular/router';
 })
 export class ListeResultatsComponent implements OnInit {
 
-  listeSondages:Sondage[]=[]
+  listeResultatSondage:ResultatSondage[]=[]
   idStagiaire:number
-  constructor(private sondageservice:SondageService,private _route: ActivatedRoute,private router: Router) {
+
+  constructor(private resultatSondageService:ResultatSondageService,private _route: ActivatedRoute,private router: Router) {
     this.idStagiaire = Number.parseInt(_route.snapshot.paramMap.get("id"))
-    sondageservice.listerSondages(this.idStagiaire).then((sondages:any) => {
-      sondages.forEach(sondage => {
-        this.listeSondages.push(sondage);
+    resultatSondageService.listerResultatSondageStagiaire(this.idStagiaire).then((resultatSondage:any) => {
+      resultatSondage.forEach(resultatsondage => {
+        this.listeResultatSondage.push(resultatsondage);
       });
     });
    }
