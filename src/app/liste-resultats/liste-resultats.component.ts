@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ResultatSondage } from '../domains';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Route } from '@angular/router';
 import { ResultatSondageService } from '../services/resultat-sondage.service';
+
 
 
 @Component({
@@ -12,6 +14,7 @@ import { ResultatSondageService } from '../services/resultat-sondage.service';
 })
 export class ListeResultatsComponent implements OnInit {
 
+
   listeResultatSondage:ResultatSondage[]=[]
   idStagiaire:number
 
@@ -20,15 +23,17 @@ export class ListeResultatsComponent implements OnInit {
     resultatSondageService.listerResultatSondageStagiaire(this.idStagiaire).then((resultatSondage:any) => {
       resultatSondage.forEach(resultatsondage => {
         this.listeResultatSondage.push(resultatsondage);
+
       });
-    });
-   }
+      _st.trouverStagiaireParId(id).then((st:Stagiaire)=> {
+        this.stagiaire=st;
+      })
+    }
 
   ngOnInit() {
   }
   
-  afiichageResultatSondage(id:string){
-    let idNumeriser = Number.parseInt(id)
-    this.router.navigate([`/${this.idStagiaire}/resultats/${idNumeriser}`])
+  affichageResultatSondage(id:string){
+    this.router.navigate([`/${this.stagiaire.id}/resultats/${id}`])
   }
 }

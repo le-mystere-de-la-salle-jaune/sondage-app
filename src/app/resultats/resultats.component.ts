@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Stagiaire } from '../domains';
+import { ActivatedRoute } from '@angular/router';
+import { StagiaireService } from '../services/stagiaire.service';
 
 @Component({
   selector: 'app-resultats',
@@ -6,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resultats.component.scss']
 })
 export class ResultatsComponent implements OnInit {
+
 
     public chartType:string = 'bar';
 
@@ -44,6 +48,7 @@ export class ResultatsComponent implements OnInit {
     public chartHovered(e: any): void { }
   
   constructor() { }
+
 
   ngOnInit() {
   }

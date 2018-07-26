@@ -1,0 +1,24 @@
+<div class="container">
+	<form role="form" (ngSubmit)="submit(monForm)" #monForm="ngForm">
+	   <div class="form-group">
+	      <label for="nom">Nom</label>
+	      <input type="nom" name="nom" class="form-control" placeholder="Enter name" [(ngModel)]="stagiaire.nom" #nom="ngModel" required minlength="2">
+	   </div>
+	   <div class="form-group">
+	      <label for="prenom">Prenom</label>
+	      <input type="prenom" name="prenom" class="form-control" placeholder="Enter surname" [(ngModel)]="stagiaire.prenom" #prenom="ngModel" required minlength="2">
+	   </div>
+	   <div class="form-group">
+	      <label for="email">Email</label>
+	      <input type="email" name="email" class="form-control" placeholder="Enter email" [(ngModel)]="stagiaire.email" #email="ngModel" required>
+	   </div>
+	   <div class="form-group">
+      <label for="photoUrl">Photo URL</label>
+      <input type="url" name="photoUrl" class="form-control" placeholder="Enter photo" [(ngModel)]="stagiaire.photo_url" #photoUrl="ngModel" required>
+    </div>
+    
+    <div class="form-group">
+       <button type="submit" [disabled]="!monForm.valid" class="btn btn-default pull-right">Modifier</button>
+    </div>
+	</form>
+</div>
