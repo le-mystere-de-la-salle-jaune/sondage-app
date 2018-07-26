@@ -3,6 +3,9 @@
         <p>{{stagiaire?.Email}}</p>
     </div>
     <div class="col-12 col-sm-1">
+          <a routerLink="/{{stagiaire?.Id}}/editer">Editer mon profil</a>
+      </div>
+    <div class="col-12 col-sm-1">
         <a routerLink="/choix-stagiaire">Choisir un autre</a>
     </div>
   </div>
@@ -13,10 +16,10 @@
       <links>
           <ul class="navbar-nav mr-auto active">
               <li class="nav-item">
-                  <a class="nav-link waves-light" mdbWavesEffect  routerLink="/{{stagiaire?.Id}}/sondages">Mes sondages</a>
+                  <a class="nav-link waves-light" mdbWavesEffect  routerLink="/{{stagiaire?.id}}/sondages">Mes sondages</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link waves-light" mdbWavesEffect routerLink="/{{stagiaire?.Id}}/resultats">Mes résultats</a>
+                  <a class="nav-link waves-light" mdbWavesEffect routerLink="/{{stagiaire?.id}}/resultats">Mes résultats</a>
               </li>
           </ul>
       </links>
@@ -38,8 +41,8 @@
   </thead>
   <tbody>
     <tr  *ngFor="let resultat of listeSondages">
-      <td>{{resultat.Titre}}</td>
-      <td><button type="button" class="btn btn-outline-secondary" (click)="affichageResultatSondage(resultat.Id)">Visualiser</button></td>
+      <td>{{resultat?.titre}}</td>
+      <td><button type="button" class="btn btn-outline-secondary" (click)="affichageResultatSondage(resultat?.id)">Visualiser</button></td>
     </tr>
   </tbody>
 </table>

@@ -18,7 +18,7 @@ export class StagiaireComponentComponent implements OnInit {
 
   quandOnClique()
   {
-    this.router.navigate([`/${this.stagiaire.Id}/sondages`])
+    this.router.navigate([`/${this.stagiaire.id}/sondages`])
   }
 
   ngOnInit() {

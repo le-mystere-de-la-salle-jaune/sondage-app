@@ -3,7 +3,7 @@
       <p>{{stagiaire?.email}}</p>
   </div>
   <div class="col-12 col-sm-1">
-        <a routerLink="/{{stagiaire?.id}}/editer">Editer mon profil</a>
+        <a routerLink="/choix-stagiaire">Editer mon profil</a>
     </div>
   <div class="col-12 col-sm-1">
       <a routerLink="/choix-stagiaire">Choisir un autre</a>
@@ -16,7 +16,7 @@
     <links>
         <ul class="navbar-nav mr-auto active">
             <li class="nav-item">
-                <a class="nav-link waves-light" mdbWavesEffect routerLink="/{{stagiaire?.id}}/sondages">Mes sondages</a>
+                <a class="nav-link waves-light" mdbWavesEffect  routerLink="/{{stagiaire?.id}}/sondages">Mes sondages</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link waves-light" mdbWavesEffect routerLink="/{{stagiaire?.id}}/resultats">Mes résultats</a>
@@ -29,18 +29,4 @@
 
 <app-bandeau-component></app-bandeau-component>
 <br />
-<h3>Mes sondages</h3>
-<table class="table table-striped table-bordered">
-    <thead>
-      <tr>
-        <th scope="col">Libellé</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let sd of listeSondages ">
-        <td style="width:90%">{{sd?.titre}}</td>
-        <td><button type="button" class="btn btn-outline-secondary" (click)="quandOnClique()">Participer</button></td>
-      </tr>
-    </tbody>
-  </table>
+<app-forms-editer-st [stagiaire]=stagiaire></app-forms-editer-st>

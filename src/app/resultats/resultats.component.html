@@ -13,10 +13,10 @@
       <links>
           <ul class="navbar-nav mr-auto active">
               <li class="nav-item">
-                  <a class="nav-link waves-light" mdbWavesEffect  routerLink="/{{stagiaire?.Id}}/sondages">Mes sondages</a>
+                  <a class="nav-link waves-light" mdbWavesEffect  routerLink="/{{stagiaire?.id}}/sondages">Mes sondages</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link waves-light" mdbWavesEffect routerLink="/{{stagiaire?.Id}}/resultats">Mes résultats</a>
+                  <a class="nav-link waves-light" mdbWavesEffect routerLink="/{{stagiaire?.id}}/resultats">Mes résultats</a>
               </li>
           </ul>
       </links>
@@ -29,5 +29,5 @@
 
 
   <div class="col-12 col-sm-1">
-      <a routerLink="/{{stagiaire.Id}}/resultats">Retour à la page précédente</a>
+      <a routerLink="/{{stagiaire?.id}}/resultats">Retour à la page précédente</a>
   </div>

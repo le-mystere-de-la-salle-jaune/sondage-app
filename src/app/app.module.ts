@@ -9,14 +9,17 @@ import { ListeStagiairesComponentComponent } from './liste-stagiaires-component/
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ListeSondagesComponent } from './liste-sondages/liste-sondages.component';
-
+import { FormsModule }   from '@angular/forms';
 import { SondageComponentComponent } from './sondage-component/sondage-component.component';
 import { ListeResultatsComponent } from './liste-resultats/liste-resultats.component';
 import { ResultatsComponent } from './resultats/resultats.component';
+import { EditerStagiaireComponent } from './editer-stagiaire/editer-stagiaire.component';
+import { FormsEditerStComponent } from './forms-editer-st/forms-editer-st.component';
 
 
 const appRoutes: Routes = [
   { path: 'choix-stagiaire', component: ChoixStagiaireComponent },
+  { path: ':id_St/editer', component: EditerStagiaireComponent },
   { path: ':id_St/sondages', component: ListeSondagesComponent },
   { path: ':id_St/sondages/:id_Sd', component: SondageComponentComponent },
   { path: ':id_St/resultats', component: ListeResultatsComponent },
@@ -35,10 +38,13 @@ const appRoutes: Routes = [
 
     SondageComponentComponent,
     ListeResultatsComponent,
-    ResultatsComponent
+    ResultatsComponent,
+    EditerStagiaireComponent,
+    FormsEditerStComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
     RouterModule.forRoot(appRoutes)

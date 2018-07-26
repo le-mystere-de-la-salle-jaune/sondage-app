@@ -29,4 +29,11 @@ export class StagiaireService
     .toPromise()
     .then((el: any) => new Stagiaire(el.id,el.nom, el.prenom,el.email, el.photo_url));
   }
+
+  modifierStagiaire(ngForm)
+  {
+    return this._http.put(`${URL_BACKEND}/api/stagiaires`,ngForm)
+    .toPromise()
+    .then((el: any) => new Stagiaire(el.id,el.nom, el.prenom,el.email, el.photo_url));
+  }
 }

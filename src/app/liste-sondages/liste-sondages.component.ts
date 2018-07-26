@@ -12,7 +12,7 @@ import { StagiaireService } from '../services/stagiaire.service';
 export class ListeSondagesComponent implements OnInit {
 
   listeSondages:Sondage[]=[]
-  stagiaire:Stagiaire 
+  stagiaire:Stagiaire = new Stagiaire(undefined,undefined,undefined,undefined,undefined)
 
 
   constructor(private _listeSd:SondageService,private _st:StagiaireService,private _route: ActivatedRoute) 

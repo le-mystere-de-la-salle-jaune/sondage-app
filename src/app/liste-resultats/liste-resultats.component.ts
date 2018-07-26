@@ -33,6 +33,6 @@ export class ListeResultatsComponent implements OnInit {
   }
   
   affichageResultatSondage(id:string){
-    this.router.navigate([`/${this.stagiaire.Id}/resultats/${id}`])
+    this.router.navigate([`/${this.stagiaire.id}/resultats/${id}`])
   }
 }
