@@ -43,8 +43,7 @@ export class ListeResultatsComponent implements OnInit {
   ngOnInit() {
   }
   
-  afiichageResultatSondage(id:string){
-    let idNumeriser = Number.parseInt(id)
-    this.router.navigate([`/${this.idStagiaire}/resultats/${idNumeriser}`])
+  affichageResultatSondage(id:number){
+    this.router.navigate([`/${this.stagiaire.id}/resultats/${id}`])
   }
 }

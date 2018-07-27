@@ -15,6 +15,7 @@ export class ResultatsComponent implements OnInit {
     unSondages:Sondage=undefined;
     stagiaire:Stagiaire = new Stagiaire(undefined,undefined,undefined,undefined,undefined)
     listeResultatSondage:ResultatSondage[]=[]
+
     public chartType:string = 'bar'
 
     public chartDatasets:any[] = [{data:[]}];
@@ -42,11 +43,13 @@ export class ResultatsComponent implements OnInit {
   
     constructor(private _listeSd:SondageService,private resultatSondageService:ResultatSondageService,private _st:StagiaireService,private _route: ActivatedRoute) 
     {
-      let id:number = Number.parseInt(_route.snapshot.paramMap.get("id_Sd"))
-      _listeSd.listerSondagesbyid(id).then((sondages:Sondage) => {
+      let id_Sd:number = Number.parseInt(_route.snapshot.paramMap.get("id_Sd"))
+      let id_St:number = Number.parseInt(_route.snapshot.paramMap.get("id_St"))
+
+      _listeSd.listerSondagesbyid(id_Sd).then((sondages:Sondage) => {
         this.unSondages = sondages ;
 
-        resultatSondageService.listerResultatSondagebySd(id).then((resultatSondage:any) => {
+        resultatSondageService.listerResultatSondagebySd(id_Sd).then((resultatSondage:any) => {
             resultatSondage.forEach(resultatsondage => {
               this.listeResultatSondage.push(resultatsondage);
             });
@@ -57,7 +60,7 @@ export class ResultatsComponent implements OnInit {
         console.log( this.chartDatasets)
 
       });
-      _st.trouverStagiaireParId(id).then((st:Stagiaire)=> {
+      _st.trouverStagiaireParId(id_St).then((st:Stagiaire)=> {
         this.stagiaire=st;
       })
     }

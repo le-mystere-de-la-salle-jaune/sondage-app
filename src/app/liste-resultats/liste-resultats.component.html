@@ -50,7 +50,7 @@
   <tbody *ngFor="let resultat of listeResultatSondage | filtrer:saisi">
     <tr>
       <td>{{resultat?.sondageName}}</td>
-      <td><button type="button" class="btn btn-outline-secondary" (click)="afiichageResultatSondage(resultat?.sondage)">Visualiser</button></td>
+      <td><button type="button" class="btn btn-outline-secondary" (click)="affichageResultatSondage(resultat?.sondage)">Visualiser</button></td>
     </tr>
   </tbody>
 </table>
