@@ -16,13 +16,11 @@ export class StagiaireComponentComponent implements OnInit {
   constructor(private router: Router) { 
   }
 
+  ngOnInit() {
+  }
+  
   quandOnClique()
   {
     this.router.navigate([`/${this.stagiaire.id}/sondages`])
   }
-
-  ngOnInit() {
-  }
-  
-
 }

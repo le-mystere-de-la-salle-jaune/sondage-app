@@ -51,8 +51,8 @@ export class ResultatsComponent implements OnInit {
               this.listeResultatSondage.push(resultatsondage);
             });
           });
-
-        this.chartLabels = this.unSondages.optionSondage.map(element => element.libelle);
+        
+        this.chartLabels = this.unSondages.options.map(element => element.libelle);
         this.chartDatasets = [{data:[81,60,12]}];
         console.log( this.chartDatasets)
 

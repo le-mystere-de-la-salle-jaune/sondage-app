@@ -15,6 +15,7 @@ import { ListeResultatsComponent } from './liste-resultats/liste-resultats.compo
 import { ResultatsComponent } from './resultats/resultats.component';
 import { EditerStagiaireComponent } from './editer-stagiaire/editer-stagiaire.component';
 import { FormsEditerStComponent } from './forms-editer-st/forms-editer-st.component';
+import { FiltrerPipe } from './filtrer.pipe';
 
 
 
@@ -42,7 +43,9 @@ const appRoutes: Routes = [
     ListeResultatsComponent,
     ResultatsComponent,
     EditerStagiaireComponent,
-    FormsEditerStComponent
+
+    FormsEditerStComponent,
+    FiltrerPipe
 
   ],
   imports: [
