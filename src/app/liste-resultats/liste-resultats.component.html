@@ -1,48 +1,54 @@
-<div class="row justify-content-end">
-    <div class="col-12 col-sm-2">
-        <p>{{stagiaire?.Email}}</p>
+<div class="container" style="max-width:90%">   
+    <div class="row justify-content-end">
+        <div class="col-12 col-sm-2">
+            <p>{{stagiaire?.email}}</p>
+        </div>
+        <div class="col-12 col-sm-1">
+            <a routerLink="/{{stagiaire?.id}}/editer">Editer profil</a>
+        </div>
+        <div class="col-12 col-sm-1">
+            <a routerLink="/choix-stagiaire">Choisir un autre</a>
+        </div>
     </div>
-    <div class="col-12 col-sm-1">
-          <a routerLink="/{{stagiaire?.Id}}/editer">Editer mon profil</a>
-      </div>
-    <div class="col-12 col-sm-1">
-        <a routerLink="/choix-stagiaire">Choisir un autre</a>
-    </div>
-  </div>
-  
-  <br />
-  
-  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark grey">
-      <links>
-          <ul class="navbar-nav mr-auto active">
-              <li class="nav-item">
-                  <a class="nav-link waves-light" mdbWavesEffect  routerLink="/{{stagiaire?.id}}/sondages">Mes sondages</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link waves-light" mdbWavesEffect routerLink="/{{stagiaire?.id}}/resultats">Mes résultats</a>
-              </li>
-          </ul>
-      </links>
-  </mdb-navbar>
-  
-  <br/>
-  
-  <app-bandeau-component></app-bandeau-component>
-  <br />
+    
+    <br />
+    
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark grey">
+        <links>
+            <ul class="navbar-nav mr-auto active">
+                <li class="nav-item">
+                    <a class="nav-link waves-light" mdbWavesEffect  routerLink="/{{stagiaire?.id}}/sondages">Mes sondages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-light" mdbWavesEffect routerLink="/{{stagiaire?.id}}/resultats">Mes résultats</a>
+                </li>
+            </ul>
+        </links>
+    </mdb-navbar>
+    
+    <br/>
+    
+    <app-bandeau-component></app-bandeau-component>
+    <br />
 
-<h3>Mes Resultats</h3>
+    <h3>Mes Resultats</h3>
 
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th scope="col" style="width:90%">Libellé</th>
-      <th scope="col" >Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr  *ngFor="let resultat of listeSondages">
-      <td>{{resultat?.titre}}</td>
-      <td><button type="button" class="btn btn-outline-secondary" (click)="affichageResultatSondage(resultat?.id)">Visualiser</button></td>
-    </tr>
-  </tbody>
-</table>
+    <br />
+    <input class="mr-sm-2" type="search" placeholder="Entrez votre recherche" aria-label="Search" style="width:20%" [(ngModel)]=saisi>
+    <br/><br/>
+
+    <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+        <th scope="col" style="width:90%">Libellé</th>
+        <th scope="col" >Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let resultat of listeSondages | filtrer:saisi">
+        <td>{{resultat?.titre}}</td>
+        <td><button type="button" class="btn btn-outline-secondary" (click)="affichageResultatSondage(resultat?.id)">Visualiser</button></td>
+        </tr>
+    </tbody>
+    </table>
+</div>

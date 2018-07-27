@@ -1,1 +1,21 @@
-{{sondage.Titre}}
+<br/>
+<div class="container" style="max-width:90%">
+    <form (ngSubmit)="submit()" #formQuestion="ngForm">
+        <div style="text-align:center">
+            <h1>{{sondage?.titre}}</h1>
+        </div>
+        <br/><br/><br/><br/>
+            
+        <div class="custom-control custom-radio" *ngFor="let sOptSd of optionSondage">
+            <input type="radio" id="sOptSd.id" name="customRadio" [(ngModel)]="idReponse" class="custom-control-input" [value]=sOptSd.id>
+            <label class="custom-control-label" for="sOptSd.id">{{sOptSd?.libelle}}</label>
+            <br/><br/>
+        </div>
+
+        <br/><br/>
+        
+        <div class="form-group row justify-content-end mr-1">
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </div>
+    </form>
+</div>
