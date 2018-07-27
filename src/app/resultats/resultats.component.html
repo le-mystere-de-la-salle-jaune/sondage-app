@@ -1,3 +1,4 @@
+
 <div class="row justify-content-end">
     <div class="col-12 col-sm-2">
         <p>{{stagiaire?.email}}</p>
@@ -27,7 +28,29 @@
   <app-bandeau-component></app-bandeau-component>
   <br />
 
+<div class="container">
+    
+ <h2>Le Graphe</h2> 
+ <br/>
+ <br/>
+ <br/>
+ 
+ <div style="display: block">
+        <canvas mdbChart
+            [chartType]="chartType"
+            [datasets]="chartDatasets"
+            [labels]="chartLabels"
+            [colors]="chartColors"
+            [options]="chartOptions"
+            [legend]="true"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
+        </canvas>
+    </div>
+
+</div>
 
   <div class="col-12 col-sm-1">
       <a routerLink="/{{stagiaire?.id}}/resultats">Retour à la page précédente</a>
   </div>
+

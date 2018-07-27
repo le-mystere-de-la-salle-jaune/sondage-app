@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Sondage, OptionsSondage, Stagiaire } from '../domains';
+import { Sondage, OptionSondage, Stagiaire } from '../domains';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SondageService } from '../services/sondage.service';
 import { StagiaireService } from '../services/stagiaire.service';
@@ -14,7 +14,7 @@ export class SondageComponentComponent implements OnInit {
 
 sondage:Sondage
 stagiaire:Stagiaire
-optionSondage:OptionsSondage[]
+optionSondage:OptionSondage[]
 idReponse:number
 
 
@@ -22,7 +22,7 @@ idReponse:number
     let id_Sd:number = Number.parseInt(_route.snapshot.paramMap.get("id_Sd"))
     let id_St:number = Number.parseInt(_route.snapshot.paramMap.get("id_St"))
 
-    _sd.listerSondagesById(id_Sd).then((sd:Sondage)=> {
+    _sd.listerSondagesbyid(id_Sd).then((sd:Sondage)=> {
       this.sondage=sd;
       this.optionSondage = this.sondage.options
     })

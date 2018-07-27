@@ -10,19 +10,18 @@ export class Stagiaire
 
 export class Sondage
 {
-    constructor(public id:number,public titre:string,public classe:Classe, public options:OptionsSondage[])
+
+    constructor(public id:number,public titre:string,public classe:Classe, public options:OptionSondage[])
+
     {
 
     }
 }
 
-export class OptionsSondage
-{
-    constructor(public id:number, public libelle:string,description:string)
-    {
 
-    }
-}
+export class ResultatSondage{
+    constructor(public id:number,public stagiaire:number,public sondage:number,public optionSondage:number,public stagiaireClasse:number,public sondageName:string){}}
+
 
 export class Classe
 {
@@ -32,13 +31,12 @@ export class Classe
     }
 }
 
-export class ResultatSondage{
-    constructor(public id:number,public stagiaire:number,public sondage:number,public optionSondage:number,public stagiaireClasse:number,public sondageName:string){
+
+
+export class OptionSondage
+{
+    constructor(public id:number,public libelle:string,public description:string)
+    {
 
     }
 }
-
-
-
-
-

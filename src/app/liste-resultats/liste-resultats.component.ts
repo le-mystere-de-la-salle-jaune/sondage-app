@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Sondage, Stagiaire } from '../domains';
-import { SondageService } from '../services/sondage.service';
+import { ResultatSondage, Stagiaire } from '../domains';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Route } from '@angular/router';
+import { ResultatSondageService } from '../services/resultat-sondage.service';
 import { StagiaireService } from '../services/stagiaire.service';
 
 
@@ -13,26 +13,38 @@ import { StagiaireService } from '../services/stagiaire.service';
 })
 export class ListeResultatsComponent implements OnInit {
 
-  listeSondages:Sondage[]=[]
-  stagiaire:Stagiaire
+  listeResultatSondage:ResultatSondage[]=[]
+  idStagiaire:number
+  stagiaire:Stagiaire = new Stagiaire(undefined,undefined,undefined,undefined,undefined);
+  saisi:string;
 
-    constructor(private _listeSd:SondageService,private _st:StagiaireService,private _route: ActivatedRoute,private router: Router) 
-    {
-      let id:number = Number.parseInt(_route.snapshot.paramMap.get("id_St"))
-      _listeSd.listerSondages(id).then((sondages:Sondage[]) => {
-        sondages.forEach(sondage => {
-          this.listeSondages.push(sondage);
-        });
+  constructor(private resultatSondageService:ResultatSondageService,private _st:StagiaireService,private _route: ActivatedRoute,private router: Router) {
+
+    let id:number = Number.parseInt(_route.snapshot.paramMap.get("id_St"))
+
+    _st.trouverStagiaireParId(id).then((st:Stagiaire)=> {
+      this.stagiaire=st;
+    })
+    
+    resultatSondageService.listerResultatSondageStagiaire(Number.parseInt(_route.snapshot.paramMap.get("id_St"))).then((resultatSondage:any) => {
+      resultatSondage.forEach(resultatsondage => {
+        this.listeResultatSondage.push(resultatsondage);
       });
-      _st.trouverStagiaireParId(id).then((st:Stagiaire)=> {
-        this.stagiaire=st;
-      })
-    }
+    });
+    
+    
+
+   
+    
+   }
+
+  
 
   ngOnInit() {
   }
   
-  affichageResultatSondage(id:string){
-    this.router.navigate([`/${this.stagiaire.id}/resultats/${id}`])
+  afiichageResultatSondage(id:string){
+    let idNumeriser = Number.parseInt(id)
+    this.router.navigate([`/${this.idStagiaire}/resultats/${idNumeriser}`])
   }
 }

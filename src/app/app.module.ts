@@ -18,13 +18,16 @@ import { FormsEditerStComponent } from './forms-editer-st/forms-editer-st.compon
 import { FiltrerPipe } from './filtrer.pipe';
 
 
+
 const appRoutes: Routes = [
   { path: 'choix-stagiaire', component: ChoixStagiaireComponent },
+  { path: ':id_St/resultats/:id_Sd', component: ResultatsComponent },
   { path: ':id_St/editer', component: EditerStagiaireComponent },
   { path: ':id_St/sondages', component: ListeSondagesComponent },
   { path: ':id_St/sondages/:id_Sd', component: SondageComponentComponent },
   { path: ':id_St/resultats', component: ListeResultatsComponent },
-  { path: ':id_St/resultats/:id_Sd', component: ResultatsComponent },
+
+
   { path: '',   redirectTo: '/choix-stagiaire', pathMatch: 'full' }
 ];
 
@@ -36,13 +39,14 @@ const appRoutes: Routes = [
     StagiaireComponentComponent,
     ListeStagiairesComponentComponent,
     ListeSondagesComponent,
-
     SondageComponentComponent,
     ListeResultatsComponent,
     ResultatsComponent,
     EditerStagiaireComponent,
+
     FormsEditerStComponent,
     FiltrerPipe
+
   ],
   imports: [
     BrowserModule,
