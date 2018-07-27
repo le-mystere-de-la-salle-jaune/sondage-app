@@ -1,5 +1,5 @@
 <div class="container">
-	<form role="form" (ngSubmit)="submit(monForm)" #monForm="ngForm">
+	<form role="form" (ngSubmit)="submit()" #monForm="ngForm">
 	   <div class="form-group">
 	      <label for="nom">Nom</label>
 	      <input type="nom" name="nom" class="form-control" placeholder="Enter name" [(ngModel)]="stagiaire.nom" #nom="ngModel" required minlength="2">
