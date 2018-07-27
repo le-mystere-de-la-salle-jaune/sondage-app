@@ -20,9 +20,7 @@ import { FormsEditerStComponent } from './forms-editer-st/forms-editer-st.compon
 
 const appRoutes: Routes = [
   { path: 'choix-stagiaire', component: ChoixStagiaireComponent },
-
-
-  { path: ':id/Resultats/:idR', component: ResultatsComponent },
+  { path: ':id_St/resultats/:id_Sd', component: ResultatsComponent },
   { path: ':id_St/editer', component: EditerStagiaireComponent },
   { path: ':id_St/sondages', component: ListeSondagesComponent },
   { path: ':id_St/sondages/:id_Sd', component: SondageComponentComponent },
@@ -40,11 +38,9 @@ const appRoutes: Routes = [
     StagiaireComponentComponent,
     ListeStagiairesComponentComponent,
     ListeSondagesComponent,
-
     SondageComponentComponent,
     ListeResultatsComponent,
     ResultatsComponent,
-
     EditerStagiaireComponent,
     FormsEditerStComponent
 

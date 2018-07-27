@@ -16,7 +16,7 @@ export class ListeResultatsComponent implements OnInit {
   idStagiaire:number
 
   constructor(private resultatSondageService:ResultatSondageService,private _route: ActivatedRoute,private router: Router) {
-    this.idStagiaire = Number.parseInt(_route.snapshot.paramMap.get("id"))
+    this.idStagiaire = Number.parseInt(_route.snapshot.paramMap.get("id_St"))
     resultatSondageService.listerResultatSondageStagiaire(this.idStagiaire).then((resultatSondage:any) => {
       resultatSondage.forEach(resultatsondage => {
         this.listeResultatSondage.push(resultatsondage);
