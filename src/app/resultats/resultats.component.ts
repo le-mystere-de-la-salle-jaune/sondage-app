@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Stagiaire } from '../domains';
+import { Stagiaire, Sondage, ResultatSondage } from '../domains';
 import { ActivatedRoute } from '@angular/router';
 import { StagiaireService } from '../services/stagiaire.service';
+import { SondageService } from '../services/sondage.service';
+import { ResultatSondageService } from '../services/resultat-sondage.service';
 
 @Component({
   selector: 'app-resultats',
@@ -10,47 +12,59 @@ import { StagiaireService } from '../services/stagiaire.service';
 })
 export class ResultatsComponent implements OnInit {
 
+    unSondages:Sondage=undefined;
+    stagiaire:Stagiaire = new Stagiaire(undefined,undefined,undefined,undefined,undefined)
+    listeResultatSondage:ResultatSondage[]=[]
+    public chartType:string = 'bar'
 
-    public chartType:string = 'bar';
-
-    public chartDatasets:Array<any> = [
-        {data: [81], label: 'My First dataset'},
-        {data: [28], label: 'My Second dataset'}
-    ];
-
-    public chartLabels:Array<any> = ['Jan'];
+    public chartDatasets:any[] = [{data:[]}];
 
     public chartColors:Array<any> = [
         {
-            backgroundColor: 'rgba(220,220,220,0.2)',
-            borderColor: 'rgba(220,220,220,1)',
+            backgroundColor: ['rgba(255, 99, 132, 0.2)','rgba(255, 206, 86, 0.2)','rgba(75, 192, 192, 0.2)','rgba(153, 102, 255, 0.2)','rgba(255, 159, 64, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 0.2)','rgba(255, 206, 86, 0.2)','rgba(75, 192, 192, 0.2)','rgba(153, 102, 255, 0.2)','rgba(255, 159, 64, 0.2)'],
             borderWidth: 2,
-            pointBackgroundColor: 'rgba(220,220,220,1)',
+            pointBackgroundColor: ['rgba(255, 99, 132, 0.2)','rgba(255, 206, 86, 0.2)','rgba(75, 192, 192, 0.2)','rgba(153, 102, 255, 0.2)','rgba(255, 159, 64, 0.2)'],
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(220,220,220,1)'
+            pointHoverBorderColor: ['rgba(255, 99, 132, 0.2)','rgba(255, 206, 86, 0.2)','rgba(75, 192, 192, 0.2)','rgba(153, 102, 255, 0.2)','rgba(255, 159, 64, 0.2)'],
         },
-        {
-            backgroundColor: 'rgba(151,187,205,0.2)',
-            borderColor: 'rgba(151,187,205,1)',
-            borderWidth: 2,
-            pointBackgroundColor: 'rgba(151,187,205,1)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(151,187,205,1)'
-        }
     ];
+
+    public chartLabels:Array<any> = [];
+
 
     public chartOptions:any = {
         responsive: true
     };
     public chartClicked(e: any): void { }
-    public chartHovered(e: any): void { }
+    public chartHovered(e: any): void { } 
   
-  constructor() { }
+    constructor(private _listeSd:SondageService,private resultatSondageService:ResultatSondageService,private _st:StagiaireService,private _route: ActivatedRoute) 
+    {
+      let id:number = Number.parseInt(_route.snapshot.paramMap.get("id_Sd"))
+      _listeSd.listerSondagesbyid(id).then((sondages:Sondage) => {
+        this.unSondages = sondages ;
+
+        resultatSondageService.listerResultatSondagebySd(id).then((resultatSondage:any) => {
+            resultatSondage.forEach(resultatsondage => {
+              this.listeResultatSondage.push(resultatsondage);
+            });
+          });
+
+        this.chartLabels = this.unSondages.optionSondage.map(element => element.libelle);
+        this.chartDatasets = [{data:[81,60,12]}];
+        console.log( this.chartDatasets)
+
+      });
+      _st.trouverStagiaireParId(id).then((st:Stagiaire)=> {
+        this.stagiaire=st;
+      })
+    }
 
 
   ngOnInit() {
+   
   }
 
 }

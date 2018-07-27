@@ -19,4 +19,11 @@ export class ResultatSondageService {
     .toPromise()
     .then((data: any) => data.map(el => new ResultatSondage(el.id,el.stagiaire,el.sondage,el.optionSondage,el.stagiaireClasse,el.sondageName)))
   }
+
+  listerResultatSondagebySd(id:number):Promise<ResultatSondage[]>  
+  {
+    return this._http.get(`${URL_BACKEND}/api/resultatsondage/`)
+    .toPromise()
+    .then((data: any) => data.filter(el => el.sondage == id).map(el => new ResultatSondage(el.id,el.stagiaire,el.sondage,el.optionSondage,el.stagiaireClasse,el.sondageName)))
+  }
 }

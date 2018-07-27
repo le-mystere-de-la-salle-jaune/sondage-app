@@ -10,7 +10,7 @@ export class Stagiaire
 
 export class Sondage
 {
-    constructor(public id:number,public titre:string)
+    constructor(public id:number,public titre:string,public optionSondage:OptionSondage[])
     {
 
     }
@@ -22,3 +22,10 @@ export class ResultatSondage{
     }
 }
 
+export class OptionSondage
+{
+    constructor(public id:number,public libelle:string,public description:string)
+    {
+
+    }
+}
