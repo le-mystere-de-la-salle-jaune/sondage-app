@@ -3,7 +3,9 @@ node_js:
   - "9"
 before_script:
   - npm install
-script: npm run build
+script: 
+  - npm run build
+  - cp ./dist/sondage-app/index.html ./dist/sondage-app/404.html
 deploy:
   local-dir: dist/sondage-app
   provider: pages
