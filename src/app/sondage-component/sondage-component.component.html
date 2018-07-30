@@ -7,8 +7,8 @@
         <br/><br/><br/><br/>
             
         <div class="custom-control custom-radio" *ngFor="let sOptSd of optionSondage">
-            <input type="radio" id="sOptSd.id" name="customRadio" [(ngModel)]="idReponse" class="custom-control-input" [value]=sOptSd.id>
-            <label class="custom-control-label" for="sOptSd.id">{{sOptSd?.libelle}}</label>
+            <input type="radio" id="{{sOptSd.id}}" name="customRadio" [(ngModel)]="idReponse" class="custom-control-input" [value]=sOptSd.id>
+            <label class="custom-control-label" for="{{sOptSd.id}}">{{sOptSd?.libelle}}</label>
             <br/><br/>
         </div>
 
